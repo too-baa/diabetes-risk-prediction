@@ -11,7 +11,7 @@ In healthcare analytics, predicting patient readmissions helps care teams proact
 
 ### Key Highlights
 
-* **Dataset:** Public [Pima Indians Diabetes / Clinical Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) featuring multi-parameter patient vitals and health indicators across 768 patient records.
+* **Dataset:** Public [Pima Indians Diabetes / Clinical Dataset](https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv) featuring multi-parameter patient vitals and health indicators across 768 patient records.
 * **Exploratory Data Analysis (EDA):** Inspected data shapes, verified absence of missing values and duplicates, and generated distribution plots and correlation matrices to analyze feature relationships.
 * **Feature Scaling:** Applied `StandardScaler` to normalize feature distributions (vital signs, test metrics) prior to model training to ensure balanced gradient updates.
 * **Modeling:** Trained a `LogisticRegression` model utilizing `l2` regularization and an optimized regularization parameter (`C=0.2`) to prevent overfitting.
