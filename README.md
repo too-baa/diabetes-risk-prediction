@@ -1,19 +1,16 @@
-# hospital-readmission-prediction
-Case study 1: Hospital Readmission Prediction — Use logistic regression with L2 regularization on patient records (diagnosis codes, vitals, prior visits) to predict 30-day readmission risk. Evaluate with ROC-AUC and discuss clinical cost of false negatives vs. false positives.
+# Diabetes Risk Prediction using Logistic Regression
 
-# Hospital Readmission Prediction using Logistic Regression
-
-A foundational machine learning pipeline designed to predict 30-day hospital readmission risk using patient clinical records, including diagnosis codes, vital signs, and prior healthcare visits. This project implements data preprocessing, feature scaling, and L2-regularized logistic regression to evaluate clinical risk.
+A foundational machine learning pipeline designed to predict diabetes onset risk using diagnostic health measurements and patient clinical indicators. This project implements exploratory data analysis, feature scaling, and L2-regularized logistic regression to classify diabetes risk and evaluate clinical trade-offs.
 
 ## Project Overview
 
-In healthcare analytics, predicting patient readmissions helps care teams proactively manage high-risk individuals and optimize resource allocation. This project processes patient health data and trains a penalized logistic regression model to classify readmission status.
+Early identification of individuals at high risk for diabetes enables timely lifestyle interventions and preventive clinical care. This project processes diagnostic patient records and trains a penalized logistic regression classifier to predict binary diabetes outcomes (`0` = Non-Diabetic, `1` = Diabetic).
 
 ### Key Highlights
 
-* **Dataset:** Public [Pima Indians Diabetes / Clinical Dataset](https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv) featuring multi-parameter patient vitals and health indicators across 768 patient records.
-* **Exploratory Data Analysis (EDA):** Inspected data shapes, verified absence of missing values and duplicates, and generated distribution plots and correlation matrices to analyze feature relationships.
-* **Feature Scaling:** Applied `StandardScaler` to normalize feature distributions (vital signs, test metrics) prior to model training to ensure balanced gradient updates.
+* **Dataset:** Public [Pima Indians Diabetes Dataset](https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv) comprising 768 patient records across 8 diagnostic features (pregnancies, plasma glucose concentration, diastolic blood pressure, triceps skinfold thickness, 2-hour serum insulin, BMI, diabetes pedigree function, and age).
+* **Exploratory Data Analysis (EDA):** Inspected feature distributions, verified absence of missing values and duplicates, and generated distribution plots and correlation matrices to analyze clinical predictors such as glucose levels and BMI.
+* **Feature Scaling:** Applied `StandardScaler` to normalize continuous clinical metrics prior to model training to ensure balanced gradient updates.
 * **Modeling:** Trained a `LogisticRegression` model utilizing `l2` regularization and an optimized regularization parameter (`C=0.2`) to prevent overfitting.
 
 ---
@@ -24,12 +21,10 @@ Evaluation on the held-out test split yielded solid predictive baseline performa
 
 * **ROC-AUC Score:** `0.74`
 * **Confusion Matrix:**
+  $$\begin{bmatrix} 80 & 19 \\ 18 & 37 \end{bmatrix}$$
+  *(True Negatives: 80 | False Positives: 19 | False Negatives: 18 | True Positives: 37)*
 
-$$\begin{bmatrix} 80 & 19 \\ 18 & 37 \end{bmatrix}$$
-
-
-
-*(True Negatives: 80 | False Positives: 19 | False Negatives: 18 | True Positives: 37)*
+* **Clinical Cost Trade-off:** In diabetes screening, **false negatives (18 cases)** carry higher clinical risk than false positives (19 cases), as missed diagnoses delay preventive care and increase long-term complication risks, whereas false positives primarily lead to low-cost confirmatory blood tests (such as HbA1c or fasting glucose).
 
 ---
 
@@ -38,11 +33,10 @@ $$\begin{bmatrix} 80 & 19 \\ 18 & 37 \end{bmatrix}$$
 ```text
 ├── CaseStudy1.ipynb         # Complete end-to-end Jupyter Notebook pipeline
 └── README.md                # Project documentation
-
 ```
 
 ---
 
 ## Getting Started & Replication
 
-You can instantly launch and run this notebook in Google Colab to explore the workflow:
+You can launch and run `CaseStudy1.ipynb` directly in Google Colab or locally via Jupyter Notebook to reproduce the preprocessing, model training, and ROC-AUC evaluation workflow.
